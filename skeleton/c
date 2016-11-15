@@ -1,0 +1,19 @@
+/**!
+ * @file {filename}
+ * 
+ *
+ * @brief 
+ *
+ * @author {author} 
+ * @version {version}
+ * @date {date}
+ */
+
+#define __PRG_VERSION__ "{version}"
+
+#include <stdio.h>
+
+int main()
+{
+
+}

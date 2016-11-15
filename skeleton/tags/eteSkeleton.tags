@@ -1,0 +1,14 @@
+ask=inputdialog(getline("."))
+askversion=inputdialog("Vesrion","0.0.1")
+author=expand("$USER")
+basename=expand("%:t:r")
+date=strftime("%d\\/%m\\/%Y")
+filename=expand("%:.")
+home=expand("$HOME")
+parentname=expand("%:p:h:t")
+timestamp=strftime("%Y-%m-%d")
+title=substitute(expand("%:t:r"), '\(\w\)\(\w\+\)', '\u\1\L\2', "g")
+titlemark=repeat(g:eteSkeleton_titlemark_char, len(substitute(expand("%:t:r"), '\(\w\)\(\w\+\)', '\u\1\L\2', "g")))
+version="0.0.1"
+wholetitle=substitute(expand("%:t:r"), '\(\w\)\(\w\+\)', '\u\1\L\2', "g") . " :mod:`" . expand("%:p:h:t") . "." . expand("%:t:r") . "`"
+wholetitlemark=repeat(g:eteSkeleton_titlemark_char, len(substitute(expand("%:t:r"), '\(\w\)\(\w\+\)', '\u\1\L\2', "g") . " :mod:`" . expand("%:p:h:t") . "." . expand("%:t:r") . "`"))

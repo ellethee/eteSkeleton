@@ -1,6 +1,6 @@
 *eteSkeleton.txt*
 
-Autor: ellethee <ellethee@altervista.org> 
+Author: ellethee <ellethee@altervista.org> 
 Version: 1.0.1
 Last change: 2010 Dec 08
 
@@ -31,6 +31,7 @@ Introduction                                    |eteSkeleton-introduction|
 Usage                                           |eteSkeleton-usage|
   Commands                                      |eteSkeleton-commands|
   Tags                                          |eteSkeleton-tags|
+  Localization                                  |eteSkeleton-localization|
 Bugs                                            |eteSkeleton-bugs|
 
 ==============================================================================
@@ -46,8 +47,9 @@ filename as the new file. As |eteSkeleton| locates such a file, it will copy
 the runtime path / skeleton of the file to the new file.
 
 example >
-        ~/.vim/skeleton/python
-        ~/.vim/skeleton/test_python 
+        skeleton/python
+        skeleton/test_python 
+        skeleton/models.python
 
         :e test_script.py
 
@@ -59,19 +61,40 @@ directory).
 
 You can enable loose filename matching by setting g:EteSkeleton_loosefiletype
 to true in your ~/.vimrc.  This will cause any filename to match against a
-skeleton file regardess of the _.
+skeleton file regardless of the _.
 
 example >
         let g:EteSkeleton_loosefiletype = 1
 
-        ~/.vim/skeleton/python
-        ~/.vim/skeleton/test_python
+        skeleton/python
+        skeleton/test_python
 
         :e test.py
 
         In this case, |eteSkeleton| will load "test_python" skeleton file.
 
+You can also enable enhanced loose filename matching by setting
+g:EteSkeleton_loosefiletype_enhanced to true (default) in your ~/.vimrc file.
+This will cause any filename to match the dot.separated.keys form, load the 
+right skeleton file and remove the keys part from the filename.
 
+example >
+        let g:EteSkeleton_loosefiletype_enhanced = 1
+
+        skeleton/python
+        skeleton/test_python
+        skeleton/test.python
+        skeleton/django.models.python
+
+        :e test.py
+
+        In this case, |eteSkeleton| will load "test.python" skeleton file.
+
+        :e test.django.models.py
+        
+        In this case, |eteSskeleton| will load the "django.models.python"
+        skeleton file and removes ".django.models" from the file name which 
+        will be "test.py"
 
 
 ==============================================================================
@@ -137,9 +160,13 @@ skeleton example >
     #! /usr/bin/python
     # -*- coding: Latin-1 -*-
     """
-    :Author: <author> (<email>)
-    :Date: <date>
+    :Author: {author} ({email})
+    :Date: {date}
     """
+------------------------------------------------------------------------------
+LOCALIZATION                                         *eteSkeleton-localization*
+
+You can simply add a `eteSkeleton_<locale>.vim` file in the lang folder.
 
 ==============================================================================
 BUGS                                                    *eteSkeleton-bugs*

@@ -1,0 +1,12 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""
+{wholetitlemark}
+{wholetitle}
+{wholetitlemark}
+
+"""
+__version__ = "{version}"
+
+if __name__ == "__main__":
+    pass

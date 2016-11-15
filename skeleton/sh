@@ -1,0 +1,34 @@
+#!/bin/bash
+#
+# Filename:     {filename}
+# Author:       {author}
+# Version:      {version}
+# Date:         {timestamp}
+#
+
+SCRIPT_PATH=$(dirname "$(readlink -f "$0")")
+
+help(){
+    # Funzione di help di base.
+cat << FINE
+
+Comando:        $(basename "$0")
+
+Sintassi:       $(basename "$0") [opzioni] [params]
+
+Descrizione:    <description>
+
+Opzioni:        -h Help (Questa pagina di manuale)
+
+FINE
+}
+
+
+while getopts h OPTION
+do
+    case $OPTION in
+        h) help; exit 0 
+        ;;
+    esac
+done
+shift $((OPTIND - 1))
