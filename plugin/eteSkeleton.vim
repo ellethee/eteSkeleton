@@ -237,6 +237,7 @@ fu! s:eteSkeleton_get()
         if g:EteSkeleton_loosefiletype_enanched
             let l:titem = join(split(l:item, '\.')[:-2], '.')
             if l:titem != ""
+                let l:sitem = l:titem . '\.' 
                 let l:titem = '\.' . l:titem . '$'
             endif
         else
@@ -251,7 +252,7 @@ fu! s:eteSkeleton_get()
                 silent keepalt 0 read `=join(l:pfile)`
                 if exists("s:ETES_TAGS")
                     if l:titem != ''
-                        let l:newname = expand("%:p:h") . "/" . substitute(l:fname, l:titem, '', '') . "." . expand("%:e")
+                        let l:newname = expand("%:p:h") . "/" . substitute(l:fname, l:sitem, '', '') . "." . expand("%:e")
                         echom l:newname
                         execute "file " . l:newname
                     endif
